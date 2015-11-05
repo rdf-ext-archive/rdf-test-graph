@@ -1,6 +1,6 @@
 {
   "name": "rdf-test-graph",
-  "version": "0.1.0",
+  "version": "0.3.0-rc1",
   "description": "Tests a graph implementation for specification conformance",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-test-graph",
   "dependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^2.3.3"
   }
 }
