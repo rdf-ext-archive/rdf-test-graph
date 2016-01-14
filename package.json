@@ -1,6 +1,6 @@
 {
   "name": "rdf-test-graph",
-  "version": "0.3.0-rc1",
+  "version": "0.3.0",
   "description": "Tests a graph implementation for specification conformance",
   "main": "index.js",
   "scripts": {
