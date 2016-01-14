@@ -166,14 +166,21 @@ function runSpecTests (rdf) {
           assert(!nodeA.equals(nodeE))
         })
 
-        it('.equals String', function () {
+        it('.equals should support number literals', function () {
+          var nodeA = new rdf.Literal('1.23')
+          var nodeB = new rdf.Literal(1.23)
+
+          assert(nodeA.equals(nodeB))
+        })
+
+        it('.equals should support plain string value', function () {
           var node = new rdf.Literal('test')
 
           assert(node.equals('test'))
           assert(!node.equals('example'))
         })
 
-        it('.equals RegExp', function () {
+        it('.equals should support RegExp matching', function () {
           var node = new rdf.Literal('test')
 
           assert(node.equals(new RegExp('t.*')))
