@@ -186,6 +186,12 @@ function runSpecTests (rdf) {
           assert.equal(node.toNT(), '"test"')
         })
 
+        it('.toNT should return the N-Triple representation of a Number', function () {
+          var node = new rdf.Literal(1.23)
+
+          assert.equal(node.toNT(), '"1.23"')
+        })
+
         it('.toNT should return the N-Triple representation including the language', function () {
           var node = new rdf.Literal('test', 'en')
 
