@@ -76,6 +76,20 @@ function runSpecTests (rdf) {
       describe('BlankNode', function () {
         implementsNodeInterface(new rdf.BlankNode())
 
+        it('.nominalValue may also be defined by constructor', function () {
+          var label = 'a1'
+          var bnode = new rdf.BlankNode(label)
+
+          assert.equal(bnode.nominalValue.toString(), label)
+        })
+
+        it('.nominalValue should generate unique labels', function () {
+          var bnode1 = new rdf.BlankNode()
+          var bnode2 = new rdf.BlankNode()
+
+          assert.notEqual(bnode1.nominalValue.toString(), bnode2.nominalValue.toString())
+        })
+
         it('.nominalValue should be a stringifyable value', function () {
           var node = new rdf.BlankNode()
 
@@ -95,6 +109,13 @@ function runSpecTests (rdf) {
 
           assert(nodeA.equals(nodeB))
           assert(!nodeA.equals(nodeC))
+        })
+
+        it('.equals should return true when comparing two bnodes with identical labels', function () {
+          var nodeA = new rdf.BlankNode('a1')
+          var nodeB = new rdf.BlankNode('a1')
+
+          assert(nodeA.equals(nodeB))
         })
 
         it('.equals should return true if compared against the nominalValue BlankNode', function () {
